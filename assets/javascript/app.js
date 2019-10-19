@@ -84,7 +84,7 @@ $(document).ready(function() {
     let answerCounter = questions[counter].answers;
 
     let answer = $('.answer');
-    for (var i = 0; i < answerCounter.length; i++) {
+    for (let i = 0; i < answerCounter.length; i++) {
       if (chosenAnswer === answerCounter[i].answer && answerCounter[i].value === true) {
         clearInterval(clock);
         let right = $(this).attr('class', 'right-answer answer');
@@ -124,7 +124,8 @@ function unanswered() {
   $('.times-up')
     .delay(2000)
     .fadeOut(400);
-  setTimeout(questionCounter, 1000);
+    setTimeout(questionCounter, 1000);
+    
 
 }
 
@@ -167,6 +168,7 @@ function timerHolder() {
   clock = setInterval(seconds, 1000);
   function seconds() {
     if (timer === 0) {
+      clearInterval(clock)
       unanswered();
     } else if (timer > 0) {
       timer--;
@@ -178,12 +180,16 @@ function timerHolder() {
 
 function finishGame() {
   let final = $('.main')
-    .html("<p>All done, here's how you did!<p><br><br>")
+    .html("<p>All done, here's how you did!<p><br>")
     .append('<p>Correct Answers: ' + correctCounter + '</p><br>')
+    .append('<p>Unanswered: ' + unansweredCounter + '</p><br>')
     .append('<p>Wrong Answers: ' + incorrectCounter + '</p>');
   $(final).attr('<div>');
   $(final).attr('class', 'final');
   $('.final').append('<p><a class="btn btn-primary btn-lg reset-button" href="#">Restart the game!</a></p>');
+  
+  
+  
 }
 
 function resetGame() {

@@ -58,6 +58,9 @@ p {
 }
 
 .question {
+  background-color: white;
+  border-radius: 4px;
+  color: black;
   font-size: 27px;
   margin-bottom: 50px;
   text-align: center;
@@ -95,8 +98,10 @@ p {
 
 .times-up {
   font-size: 36px;
-  color: #ff5270;
+  font-weight: bold;
+  color: black;
   text-align: center;
+  
 }
 
 .final {
